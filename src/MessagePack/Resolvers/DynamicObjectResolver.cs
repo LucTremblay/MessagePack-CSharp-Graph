@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using MessagePack.Formatters;
 using MessagePack.Internal;
+using MessagePack.Resolvers;
 
 #pragma warning disable SA1402 // File may only contain a single type
 #pragma warning disable SA1403 // File may only contain a single namespace
@@ -1163,6 +1164,12 @@ namespace MessagePack.Internal
             {
                 il.Emit(OpCodes.Newobj, info.BestmatchConstructor!);
                 il.EmitStloc(localResult);
+
+                if (type.GetCustomAttribute(typeof(AllowCircularRefrerencesAttribute)) is not null)
+                {
+                    il.EmitLdloc(localResult);
+                    il.EmitCall(ObjectReferencesHelper.AddReferenceMethodInfo);
+                }
             }
             else
             {

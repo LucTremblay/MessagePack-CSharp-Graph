@@ -139,4 +139,9 @@ namespace MessagePack
             this.Arguments = arguments;
         }
     }
+
+    [AttributeUsage(AttributeTargets.Class)]
+    public class AllowCircularRefrerencesAttribute : Attribute
+    {
+    }
 }

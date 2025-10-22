@@ -157,6 +157,12 @@
     <Compile Include="..\..\src\MessagePack\Resolvers\DynamicObjectResolver.cs">
       <Link>Code\DynamicObjectResolver.cs</Link>
     </Compile>
+    <Compile Include="..\..\src\MessagePack\Resolvers\CircularReferencesResolver.cs">
+      <Link>Code\CircularReferencesResolver.cs</Link>
+    </Compile>
+     <Compile Include="..\..\src\MessagePack\Formatters\CircularReferencesFormatter.cs">
+      <Link>Code\CircularReferencesFormatter.cs</Link>
+    </Compile>
     <Compile Include="..\..\src\MessagePack\Resolvers\DynamicUnionResolver.cs">
       <Link>Code\DynamicUnionResolver.cs</Link>
     </Compile>
